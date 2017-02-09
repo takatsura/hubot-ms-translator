@@ -6,6 +6,7 @@
 
 request = require 'request'
 DOMParser = require('xmldom').DOMParser
+API_KEY = process.env.HUBOT_TRANSLATOR_KEY
 
 
 module.exports = (robot) ->
@@ -15,7 +16,7 @@ module.exports = (robot) ->
     options =
       url: url
       timeout: 2000
-      headers: {'Content-Type': 'application/json', 'Accept': 'application/jwt', 'Ocp-Apim-Subscription-Key': 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'}
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/jwt', 'Ocp-Apim-Subscription-Key': API_KEY}
       method: 'POST'
 
     request options, (error, response, body) ->
